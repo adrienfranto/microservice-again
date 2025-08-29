@@ -1,4 +1,4 @@
-FROM ubuntu:latest
-LABEL authors="Adrien Franto"
-
-ENTRYPOINT ["top", "-b"]
+FROM openjdk:21-jdk-slim
+WORKDIR /app
+COPY target/product-service-0.0.1-SNAPSHOT.jar app.jar
+ENTRYPOINT ["java", "-jar", "app.jar"]
